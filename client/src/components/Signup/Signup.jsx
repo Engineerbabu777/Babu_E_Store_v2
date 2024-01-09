@@ -32,14 +32,14 @@ const Singup = () => {
     axios
       .post(`${server}/user/create-user`, { name, email, password, avatar })
       .then((res) => {
-        toast.success(res.data.message);
+        toast.success(res?.data?.message);
         setName("");
         setEmail("");
         setPassword("");
         setAvatar();
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message);
       });
   };
 
