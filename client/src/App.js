@@ -4,6 +4,7 @@ import { LoginPage, SignupPage } from './routes/Routes.js'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import ActivationPage from './pages/ActivationPage.jsx'
 
 const App = () => {
   return (
@@ -11,11 +12,16 @@ const App = () => {
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignupPage />} />
+        <Route
+          path='/activation/:activation_token'
+          element={<ActivationPage />}
+        />
       </Routes>
       <ToastContainer
         position='bottom-center'
         autoClose={5000}
         hideProgressBar={false}
+        f
         newestOnTop={false}
         closeOnClick
         rtl={false}
