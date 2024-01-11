@@ -11,9 +11,6 @@ const sendToken = (user, statusCode, res) => {
     secure: true
   }
 
-  // Set a new cookie with the name
-  res.setHeader('Set-Cookie', cookie.serialize('token', String(token), options))
-
   res.status(statusCode).json({
     success: true,
     user,
