@@ -1,11 +1,13 @@
 const ErrorHandler = require('../utils/ErrorHandler')
 const catchAsyncErrors = require('./catchAsyncErrors')
 const jwt = require('jsonwebtoken')
-// const User = require("../model/user");
+const User = require("../model/user");
 // const Shop = require("../model/shop");
 
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
-  const token = req?.headers?.authorization?.split(' ')[1];
+  const token = req?.headers?.authorization
+
+  console.log({ token })
 
   if (!token) {
     return next(new ErrorHandler('Please login to continue', 401))
@@ -15,6 +17,7 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
 
   req.user = await User.findById(decoded.id)
 
+  console.log(req.user)
   next()
 })
 

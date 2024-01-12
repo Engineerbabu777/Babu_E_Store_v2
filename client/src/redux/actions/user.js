@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { server } from '../../server'
+import Cookies from 'js-cookie'
 
 // load user
 export const loadUser = () => async dispatch => {
@@ -8,16 +9,19 @@ export const loadUser = () => async dispatch => {
       type: 'LoadUserRequest'
     })
     const { data } = await axios.get(`${server}/user/getuser`, {
-      withCredentials: true
+      headers: {
+        authorization: Cookies.get('token')
+      }
     })
     dispatch({
       type: 'LoadUserSuccess',
-      payload: data.user
+      payload: data?.user
     })
+    console.log(data)
   } catch (error) {
     dispatch({
       type: 'LoadUserFail',
-      payload: error.response.data.message
+      payload: error?.response?.data.message
     })
   }
 }
@@ -29,7 +33,6 @@ export const loadSeller = () => async dispatch => {
       type: 'LoadSellerRequest'
     })
     const { data } = await axios.get(`${server}/shop/getSeller`, {
-      withCredentials: true
     })
     dispatch({
       type: 'LoadSellerSuccess',
@@ -60,7 +63,6 @@ export const updateUserInformation =
           name
         },
         {
-          withCredentials: true,
           headers: {
             'Access-Control-Allow-Credentials': true
           }
@@ -98,7 +100,6 @@ export const updatUserAddress =
           zipCode,
           addressType
         },
-        { withCredentials: true }
       )
 
       dispatch({
@@ -125,7 +126,6 @@ export const deleteUserAddress = id => async dispatch => {
 
     const { data } = await axios.delete(
       `${server}/user/delete-user-address/${id}`,
-      { withCredentials: true }
     )
 
     dispatch({
@@ -151,7 +151,6 @@ export const getAllUsers = () => async dispatch => {
     })
 
     const { data } = await axios.get(`${server}/user/admin-all-users`, {
-      withCredentials: true
     })
 
     dispatch({
