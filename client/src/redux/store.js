@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { userReducer } from './reducers/user'
-import { productReducer } from "./reducers/product";
-import { cartReducer } from "./reducers/cart";
-import { wishlistReducer } from "./reducers/wishlist";
-import { sellerReducer } from './reducers/seller';
+import { productReducer } from './reducers/product'
+import { cartReducer } from './reducers/cart'
+import { wishlistReducer } from './reducers/wishlist'
+import { sellerReducer } from './reducers/seller'
+import { eventReducer } from './reducers/event'
 
 const Store = configureStore({
   reducer: {
@@ -11,8 +12,8 @@ const Store = configureStore({
     products: productReducer,
     cart: cartReducer,
     wishlist: wishlistReducer,
-    seller:sellerReducer
-
+    seller: sellerReducer,
+    events: eventReducer
   }
 })
 
