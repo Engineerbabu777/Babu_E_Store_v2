@@ -24,6 +24,8 @@ const App = () => {
           path='/activation/:activation_token'
           element={<ActivationPage />}
         />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/order/success" element={<OrderSuccessPage />} />
       </Routes>
       <ToastContainer
         position='bottom-center'
