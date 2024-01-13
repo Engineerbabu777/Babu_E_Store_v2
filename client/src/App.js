@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HomePage, LoginPage, OrderSuccessPage, ProductDetailsPage, SignupPage } from './routes/Routes.js'
+import {
+  HomePage,
+  LoginPage,
+  OrderSuccessPage,
+  ProductDetailsPage,
+  SignupPage
+} from './routes/Routes.js'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,6 +14,8 @@ import ActivationPage from './pages/ActivationPage.jsx'
 import { useDispatch } from 'react-redux'
 import { loadUser } from './redux/actions/user.js'
 import Store from './redux/store.js'
+import ProfilePage from './pages/ProfilePage.jsx'
+import ProtectedRoute from './routes/ProtectedRoute.jsx'
 
 const App = () => {
   useEffect(() => {
@@ -24,8 +32,16 @@ const App = () => {
           path='/activation/:activation_token'
           element={<ActivationPage />}
         />
-        <Route path="/product/:id" element={<ProductDetailsPage />} />
-        <Route path="/order/success" element={<OrderSuccessPage />} />
+        <Route
+          path='/profile'
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path='/product/:id' element={<ProductDetailsPage />} />
+        <Route path='/order/success' element={<OrderSuccessPage />} />
       </Routes>
       <ToastContainer
         position='bottom-center'
