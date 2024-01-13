@@ -16,6 +16,8 @@ import { loadUser } from './redux/actions/user.js'
 import Store from './redux/store.js'
 import ProfilePage from './pages/ProfilePage.jsx'
 import ProtectedRoute from './routes/ProtectedRoute.jsx'
+import ShopCreatePage from './pages/ShopCreate.jsx'
+import ShopLoginPage from './pages/ShopLoginPage.jsx'
 
 const App = () => {
   useEffect(() => {
@@ -42,6 +44,11 @@ const App = () => {
         />
         <Route path='/product/:id' element={<ProductDetailsPage />} />
         <Route path='/order/success' element={<OrderSuccessPage />} />
+
+        {/* <Route path="/shop/preview/:id" element={<ShopPreviewPage />} /> */}
+        <Route path="/shop-create" element={<ShopCreatePage />} />
+        <Route path="/shop-login" element={<ShopLoginPage />} />
+
       </Routes>
       <ToastContainer
         position='bottom-center'
