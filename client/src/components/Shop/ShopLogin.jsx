@@ -22,15 +22,15 @@ const ShopLogin = () => {
           email,
           password,
         },
-        { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");
+        localStorage.setItem("seller_token", res.data.token);
         navigate("/dashboard");
         window.location.reload(true); 
       })
       .catch((err) => {
-        toast.error(err.response.data.message);
+        toast.error(err?.response?.data?.message);
       });
   };
 

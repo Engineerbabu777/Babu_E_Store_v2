@@ -18,6 +18,7 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import ProtectedRoute from './routes/ProtectedRoute.jsx'
 import ShopCreatePage from './pages/ShopCreate.jsx'
 import ShopLoginPage from './pages/ShopLoginPage.jsx'
+import SellerActivationPage from './pages/SellerActivationPage.jsx'
 
 const App = () => {
   useEffect(() => {
@@ -44,6 +45,10 @@ const App = () => {
         />
         <Route path='/product/:id' element={<ProductDetailsPage />} />
         <Route path='/order/success' element={<OrderSuccessPage />} />
+        <Route
+          path="/seller/activation/:activation_token"
+          element={<SellerActivationPage />}
+        />
 
         {/* <Route path="/shop/preview/:id" element={<ShopPreviewPage />} /> */}
         <Route path="/shop-create" element={<ShopCreatePage />} />
