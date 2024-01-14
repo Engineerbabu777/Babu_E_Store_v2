@@ -59,7 +59,6 @@ const App = () => {
         position='bottom-center'
         autoClose={5000}
         hideProgressBar={false}
-        f
         newestOnTop={false}
         closeOnClick
         rtl={false}
