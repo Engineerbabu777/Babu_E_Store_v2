@@ -19,11 +19,11 @@ export {
     ShopCreateEvents,
     ShopAllEvents,
     ShopAllCoupouns,
-    ShopPreviewPage,
     ShopAllOrders,
     ShopOrderDetails,
     ShopAllRefunds,
     ShopSettingsPage,
     ShopWithDrawMoneyPage,
-    ShopInboxPage
+    ShopInboxPage,
+    ShopPreviewPage
 }
