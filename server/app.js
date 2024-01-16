@@ -16,11 +16,15 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 require('dotenv').config()
 
 // import routes
-const user = require('./controller/user');
-const shop = require('./controller/shop');
+const user = require('./controller/user')
+const shop = require('./controller/shop')
+const event = require('./controller/event')
+const product = require('./controller/product')
 
 app.use('/api/v3/user', user)
-app.use('/api/v3/shop', shop);
+app.use('/api/v3/shop', shop)
+app.use('/api/v3/event', event)
+app.use('/api/v3/product', product)
 
 // it's for ErrorHandling
 app.use(ErrorHandler)
